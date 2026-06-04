@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --color-surface: #f9fafb;
+    --color-surface-dark: #111827;
+}
+
+@layer base {
+    html.dark {
+        color-scheme: dark;
+    }
+}
+
+@keyframes slide-in {
+    from { transform: translateX(100%); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-in-up {
+    from { transform: translateY(80px) scale(0.92); opacity: 0; }
+    to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes fade-in-down {
+    from { transform: translateY(-24px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scale-in {
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px); }
+}
+
+@keyframes gradient-shift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@utility animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+}
+
+@utility animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+@utility animate-fade-in-down {
+    animation: fade-in-down 0.6s ease-out forwards;
+}
+
+@utility animate-scale-in {
+    animation: scale-in 0.4s ease-out forwards;
+}
+
+@utility animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@utility animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+@utility animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+}
+
+@variant hover (&:hover);
+
+
+
+
